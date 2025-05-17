@@ -61,28 +61,33 @@ sn.histplot(df.Height,kde=True)
 The kde=True option overlays a Kernel Density Estimate (KDE) curve to show the distribution shape smoothly.
 
 ### 5. Calculations
+1.
 ```python
 mean=df.Height.mean()
 mean
 ```
 Calculates the mean (average) of the values in the Height column of a DataFrame named df in Python using the pandas library.
 
+2.
 ```python
 std=df.Height.std()
 std
 ```
 Calculates the standard deviation of the values in the Height column of a pandas DataFrame df.
 
+3.
 ```python
 mean-3*std
 ```
 This code snippet calculates a value three standard deviations below the mean.
 
+4.
 ```python
 mean+3*std
 ```
 This code snippet calculates a value three standard deviations above the mean.
 
+5.
 ```python
 count=df[df.Height<62.28807728318317]
 count
@@ -90,6 +95,7 @@ count
 ```
 This code snippet filters the rows in the DataFrame df where the values in the Height column are less than 62.28807728318317.
 
+6.
 ```python
 count.describe()
 count2=df[df.Height>73.6981499104168]
@@ -97,6 +103,7 @@ count2.describe()
 ```
 This code snippet filters the rows in the DataFrame df where the values in the Height column are greater than 73.6981499104168.
 
+7.
 ```python
 outlier=df[(df.Height>73.6981499104168)|(df.Height<62.28807728318317)]
 outlier.describe()
@@ -105,6 +112,7 @@ This code snippet creates a new DataFrame outlier containing rows where the Heig
 a. The Height is greater than 73.6981499104168 (upper bound), or
 b. The Height is less than 62.28807728318317 (lower bound).
 
+8.
 ```python
 no_outlier=df[(df.Height<73.6981499104168)&(df.Height>62.28807728318317)]
 no_outlier
@@ -114,11 +122,13 @@ This code snippet creates a new DataFrame no_outlier containing rows where the H
 a. The Height is less than 73.6981499104168 (upper bound), and
 b. The Height is greater than 62.28807728318317 (lower bound).
 
+9.
 ```python
 (64.54826-mean)/std
 ```
 This code snippet calculates the z-score for the value 64.54826 in relation to the Height column of the DataFrame.
 
+10.
 ```python
 from scipy.stats import zscore
 outlier.apply(zscore)<3
